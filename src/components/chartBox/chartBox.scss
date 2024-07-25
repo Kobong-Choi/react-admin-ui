@@ -3,6 +3,8 @@
   height: 100%;
 
   .boxInfo {
+    // Flexbox 컨테이너에서 .boxInfo가 사용할 공간의 비율을 설정합니다.
+    // 이 경우, .chartInfo보다 더 넓은 공간을 차지하게 됩니다.
     flex: 3;
     display: flex;
     flex-direction: column;
