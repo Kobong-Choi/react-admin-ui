@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { GridColDef } from "@mui/x-data-grid";
+import { userRows } from "../../data";
 import DataTable from "../../components/dataTable/DataTable";
 import "./users.scss";
-import { userRows } from "../../data";
+import Add from "../../components/add/Add";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
@@ -61,13 +63,17 @@ const columns: GridColDef[] = [
 ];
 
 const Users = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="users">
       <div className="info">
         <h1>Users</h1>
-        <button>Add New user</button>
+        <button onClick={() => setOpen(true)}>Add New user</button>
       </div>
+      {/* slug: URL이나 데이터베이스 등의 항목을 식별하는 데 사용되는 짧고 간결한 텍스트 문자열을 의미합니다. */}
       <DataTable slug="users" columns={columns} rows={userRows} />
+      {open && <Add slug="user" columns={columns} setOpen={setOpen} />}
     </div>
   );
 };

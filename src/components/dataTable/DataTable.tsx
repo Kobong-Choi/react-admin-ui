@@ -3,9 +3,9 @@ import "./dataTable.scss";
 import { Link } from "react-router-dom";
 
 type Props = {
+  slug: string;
   columns: GridColDef[];
   rows: object[];
-  slug: string;
 };
 
 const DataTable = (props: Props) => {
