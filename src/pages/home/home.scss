@@ -1,10 +1,32 @@
 @import "../../styles/variables.scss";
+@import "../../styles/responsive.scss";
 
 .home {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(4, 1fr);
+
+  /* CSS Grid 레이아웃에서 그리드의 자동 생성 행의 높이를 지정하는 데 사용되는 속성입니다.
+     이 설정은 특정 최소 및 최대 크기 사이에서 행의 크기를 조절하는 기능을 제공합니다.
+     
+     - 180px: 행의 최소 높이입니다. 모든 행은 최소 180px 이상의 높이를 가지게 됩니다.
+     - auto: 행의 최대 높이는 그리드 아이템의 콘텐츠에 따라 자동으로 결정됩니다. 즉, 아이템의 내용이 많아지면 행의 높이가 더 커질 수 있습니다.
+  */
   grid-auto-rows: minmax(180px, auto);
+  grid-auto-flow: dense;
+
+  @include xl {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include lg {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include md {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @include sm {
+    grid-auto-rows: minmax(120px, auto);
+  }
 
   .box {
     padding: 20px;
@@ -25,5 +47,9 @@
   .box7 {
     grid-column: span 2;
     grid-row: span 2;
+
+    @include md {
+      display: none;
+    }
   }
 }

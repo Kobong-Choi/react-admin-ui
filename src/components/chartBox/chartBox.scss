@@ -1,6 +1,12 @@
+@import "../../styles/responsive.scss";
+
 .chartBox {
   display: flex;
   height: 100%;
+
+  @include sm {
+    flex-direction: column;
+  }
 
   .boxInfo {
     // Flexbox 컨테이너에서 .boxInfo가 사용할 공간의 비율을 설정합니다.
@@ -10,10 +16,24 @@
     flex-direction: column;
     justify-content: space-between;
 
+    @include sm {
+      gap: 20px;
+    }
+
     .title {
       display: flex;
       align-items: center;
       gap: 10px;
+
+      @include xxl {
+        font-size: 14px;
+      }
+    }
+
+    h1 {
+      @include xxl {
+        font-size: 20px;
+      }
     }
   }
 
@@ -36,6 +56,10 @@
       .percentage {
         font-weight: bold;
         font-size: 20px;
+
+        @include xxl {
+          font-size: 16px;
+        }
       }
 
       .duration {
